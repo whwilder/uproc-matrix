@@ -25,17 +25,17 @@ end
 allSamples = []
 # get a list of all the sample names
 stations.invert.keys.each{|samples| allSamples << samples.keys}
-printf "Sample\t"
+printf "%-10s\t", "Sample"
 stations.keys.each{|station| printf "%10s\t", station}
 puts
 allSamples.flatten.uniq.sort.each do |sample|
-   printf "#{sample}\t"
+   printf "%-10s\t", sample
    stations.each do |station,samp|
       padding = station.length
       if ! samp[sample].nil?
-         printf("%10d\t", samp[sample])
+         printf "%10d\t", samp[sample]
       else
-         printf("%10d\t", 0)
+         printf "%10d\t", 0
       end
    end
    puts
